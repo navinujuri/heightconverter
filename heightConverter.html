@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>height converter</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+
+        }
+
+        body {
+            background-color: black;
+        }
+        .convert-box {
+            display: flex;
+            justify-content: space-evenly;
+            width: 325px;
+
+        }
+
+        .main-container {
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: orange;
+            width: 500px;
+            height: 400px;
+            margin: auto;
+            margin-top: 200px;
+            
+
+
+        }
+
+      
+
+        .footer {
+            border-radius: 10px;
+            padding: 20px;
+            width: 450px;
+
+            display: flex;
+            justify-content: space-evenly;
+            background-color: black;
+          
+        }
+      
+
+        .footer-text {
+            color: orange;
+            display: block;
+            width: 200px;
+            padding-bottom: 10px;
+            text-align: center;
+
+
+
+        }
+
+     
+
+        #cm,
+        #in {
+            width: 100px;
+            height: 35px;
+            margin: auto;
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 5px;
+            display: block;
+            padding-top: 7px;
+            text-align: center;
+            font-weight: 600;
+           
+        }
+     
+        button {
+            padding: 10px;
+            background-color: black;
+            color: orange;
+            font-weight: bold;
+        }
+        input{
+            padding: 10px;
+        }
+       
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+
+
+        <h1>HEIGHT CONVERTER</h1>
+        <label>Enter your height in feet :</label>
+        <div class="convert-box">
+            <input type="text" id="input" placeholder="Enter value in feet" />
+            <button type="button" onclick="converterfunction()">Convert</button>
+        </div>
+
+        <div id="msg"></div>
+        <div class="footer">
+            <div>
+                <p class="footer-text">Height in centimeters : </p>
+                <div id="cm"> </div>
+            </div>
+            <div>
+                <p class="footer-text">Height in inches : </p>
+                <div id="in"> </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+
+    <script>
+
+        function converterfunction() {
+            let cmrlt='';
+            let inrlt='';
+            let msg = ''
+            let msgintxt = ''
+
+            let inp = document.getElementById("input").value;
+          
+
+            document.getElementById("msg").innerText = msg
+            document.getElementById("cm").innerText = cmrlt
+            document.getElementById("in").innerText = inrlt
+
+
+            if (isNaN(inp) || inp < 0) {
+
+              
+                cmrlt = "";
+                inrlt = '';
+                msg = 'pls enter valid number'
+                document.getElementById("cm").innerText = cmrlt
+                document.getElementById("in").innerText = inrlt
+                document.getElementById("msg").innerText = msg
+
+            }
+            else if (inp > 9) {
+               
+                cmrlt = "";
+                inrlt = '';
+                msg = 'No such Person exist in recorded history'
+                document.getElementById("msg").innerText = msg
+
+
+
+            } else if (typeof (parseInt(inp)) == "number") {
+                cmrlt = 30.48 * parseInt(input);
+                inrlt = 12 * parseInt(input);
+                document.getElementById("cm").innerText = cmrlt
+                document.getElementById("in").innerText = inrlt
+            }
+
+        }
+    </script>
+</body>
+
+</html>
